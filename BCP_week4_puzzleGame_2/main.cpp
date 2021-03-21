@@ -7,6 +7,7 @@ SceneID picture, background;
 ObjectID start, reset, img1, img2, img3, img4, img5, img6, img7, img8, img9;
 TimerID timer1;
 
+
 int x[9] = { 300, 434, 568, 300, 434, 568, 300, 434, 568 };
 int y[9] = { 400, 400, 400, 250, 250, 250, 100, 100, 100 };
 int objectId[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -16,7 +17,7 @@ int mixing{ 0 };
 clock_t timeStart;
 clock_t timeEnd;
 
-const int mixNum = 10;
+const int mixNum = 5;
 
 struct puzzle {
 	int coord[9][2] = {
@@ -28,11 +29,9 @@ struct puzzle {
 	int currentPos[9][2] = { 0 };
 	ObjectID obj[9] = { img1, img2, img3, img4, img5, img6, img7, img8, img9 };
 };
+
 puzzle myPuzzle;
 
-//puzzle printPos() {
-//	
-//}
 int objIndex(puzzle* puzzle, ObjectID object) {
 	for (int i = 0; i < 16; i++) {
 		if (puzzle->obj[i] == object) return i;
@@ -175,6 +174,10 @@ void mix(puzzle* puzzle) {
 		int firstNum{ 0 };
 		firstNum = rand() % 9 + 1;
 
+		for (int i{ 0 }; i < 9; i++) {
+			printf("%d ", objectId[i]);
+		}
+
 		temp = objectId[firstNum - 1];
 		objectId[firstNum - 1] = objectId[objectId[8] - 1];
 		objectId[objectId[8] - 1] = temp;
@@ -186,9 +189,6 @@ void mix(puzzle* puzzle) {
 		puzzle->coord[firstNum - 1][0] = buf1;
 		puzzle->coord[firstNum - 1][1] = buf2;
 
-		for (int i{ 0 }; i < 9; i++) {
-			printf("%d ", objectId[i]);
-		}
 
 		printf("\n%d %d \n", objectId[firstNum - 1], objectId[objectId[8] - 1]);
 
@@ -199,11 +199,12 @@ void mix(puzzle* puzzle) {
 		}
 		for (int i{ 0 }; i < 9; i++) {
 			for (int j{ 0 }; j < 2; j++) {
-				printf("%d ", puzzle->currentPos[i][j]);
+				printf("%d ", puzzle->coord[i][j]);
 			}
 			printf("\n");
 		}
 		mixCheck++;
+		printf("\n");
 	}
 }
 
