@@ -17,7 +17,7 @@ int mixing{ 0 };
 clock_t timeStart;
 clock_t timeEnd;
 
-const int mixNum = 5;
+const int mixNum = 200;
 
 struct puzzle {
 	int coord[9][2] = {
