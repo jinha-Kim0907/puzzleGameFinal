@@ -16,7 +16,7 @@ int mixing{ 0 };
 clock_t timeStart;
 clock_t timeEnd;
 
-const int mixNum = 100;
+const int mixNum = 10;
 
 struct puzzle {
 	int coord[9][2] = {
@@ -37,7 +37,6 @@ int objIndex(puzzle* puzzle, ObjectID object) {
 	for (int i = 0; i < 16; i++) {
 		if (puzzle->obj[i] == object) return i;
 	}
-
 	return -1;
 }
 
@@ -51,8 +50,118 @@ void saveTocur(puzzle* puzzle) {
 
 void move(puzzle* puzzle, ObjectID object) {
 	if (object == img1) {
-
+		int buf1{ 0 };
+		int buf2{ 0 };
+		int temp{ 0 };
+		temp = objectId[objectId[0] - 1];
+		objectId[objectId[0] - 1] = objectId[objectId[8] - 1];
+		objectId[objectId[8] - 1] = temp;
+		buf1 = puzzle->coord[objectId[8] - 1][0];
+		buf2 = puzzle->coord[objectId[8] - 1][1];
+		puzzle->coord[objectId[8] - 1][0] = puzzle->coord[objectId[0] - 1][0];
+		puzzle->coord[objectId[8] - 1][1] = puzzle->coord[objectId[0] - 1][1];
+		puzzle->coord[objectId[0] - 1][0] = buf1;
+		puzzle->coord[objectId[0] - 1][1] = buf2;
 	}
+	if (object == img2) {
+		int buf1{ 0 };
+		int buf2{ 0 };
+		int temp{ 0 };
+		temp = objectId[objectId[1] - 1];
+		objectId[objectId[1] - 1] = objectId[objectId[8] - 1];
+		objectId[objectId[8] - 1] = temp;
+		buf1 = puzzle->coord[objectId[8] - 1][0];
+		buf2 = puzzle->coord[objectId[8] - 1][1];
+		puzzle->coord[objectId[8] - 1][0] = puzzle->coord[objectId[1] - 1][0];
+		puzzle->coord[objectId[8] - 1][1] = puzzle->coord[objectId[1] - 1][1];
+		puzzle->coord[objectId[1] - 1][0] = buf1;
+		puzzle->coord[objectId[1] - 1][1] = buf2;
+	}
+	if (object == img3) {
+		int buf1{ 0 };
+		int buf2{ 0 };
+		int temp{ 0 };
+		temp = objectId[objectId[2] - 1];
+		objectId[objectId[2] - 1] = objectId[objectId[8] - 1];
+		objectId[objectId[8] - 1] = temp;
+		buf1 = puzzle->coord[objectId[8] - 1][0];
+		buf2 = puzzle->coord[objectId[8] - 1][1];
+		puzzle->coord[objectId[8] - 1][0] = puzzle->coord[objectId[2] - 1][0];
+		puzzle->coord[objectId[8] - 1][1] = puzzle->coord[objectId[2] - 1][1];
+		puzzle->coord[objectId[2] - 1][0] = buf1;
+		puzzle->coord[objectId[2] - 1][1] = buf2;
+	}
+	if (object == img4) {
+		int buf1{ 0 };
+		int buf2{ 0 };
+		int temp{ 0 };
+		temp = objectId[objectId[3] - 1];
+		objectId[objectId[3] - 1] = objectId[objectId[8] - 1];
+		objectId[objectId[8] - 1] = temp;
+		buf1 = puzzle->coord[objectId[8] - 1][0];
+		buf2 = puzzle->coord[objectId[8] - 1][1];
+		puzzle->coord[objectId[8] - 1][0] = puzzle->coord[objectId[3] - 1][0];
+		puzzle->coord[objectId[8] - 1][1] = puzzle->coord[objectId[3] - 1][1];
+		puzzle->coord[objectId[3] - 1][0] = buf1;
+		puzzle->coord[objectId[3] - 1][1] = buf2;
+	}
+	if (object == img5) {
+		int buf1{ 0 };
+		int buf2{ 0 };
+		int temp{ 0 };
+		temp = objectId[objectId[4] - 1];
+		objectId[objectId[4] - 1] = objectId[objectId[8] - 1];
+		objectId[objectId[8] - 1] = temp;
+		buf1 = puzzle->coord[objectId[8] - 1][0];
+		buf2 = puzzle->coord[objectId[8] - 1][1];
+		puzzle->coord[objectId[8] - 1][0] = puzzle->coord[objectId[4] - 1][0];
+		puzzle->coord[objectId[8] - 1][1] = puzzle->coord[objectId[4] - 1][1];
+		puzzle->coord[objectId[4] - 1][0] = buf1;
+		puzzle->coord[objectId[4] - 1][1] = buf2;
+	}
+	if (object == img6) {
+		int buf1{ 0 };
+		int buf2{ 0 };
+		int temp{ 0 };
+		temp = objectId[objectId[5] - 1];
+		objectId[objectId[5] - 1] = objectId[objectId[8] - 1];
+		objectId[objectId[8] - 1] = temp;
+		buf1 = puzzle->coord[objectId[8] - 1][0];
+		buf2 = puzzle->coord[objectId[8] - 1][1];
+		puzzle->coord[objectId[8] - 1][0] = puzzle->coord[objectId[5] - 1][0];
+		puzzle->coord[objectId[8] - 1][1] = puzzle->coord[objectId[5] - 1][1];
+		puzzle->coord[objectId[5] - 1][0] = buf1;
+		puzzle->coord[objectId[5] - 1][1] = buf2;
+	}
+	if (object == img7) {
+		int buf1{ 0 };
+		int buf2{ 0 };
+		int temp{ 0 };
+		temp = objectId[objectId[6] - 1];
+		objectId[objectId[6] - 1] = objectId[objectId[8] - 1];
+		objectId[objectId[8] - 1] = temp;
+		buf1 = puzzle->coord[objectId[8] - 1][0];
+		buf2 = puzzle->coord[objectId[8] - 1][1];
+		puzzle->coord[objectId[8] - 1][0] = puzzle->coord[objectId[6] - 1][0];
+		puzzle->coord[objectId[8] - 1][1] = puzzle->coord[objectId[6] - 1][1];
+		puzzle->coord[objectId[6] - 1][0] = buf1;
+		puzzle->coord[objectId[6] - 1][1] = buf2;
+	}
+	if (object == img8) {
+		int buf1{ 0 };
+		int buf2{ 0 };
+		int temp{ 0 };
+		temp = objectId[objectId[7] - 1];
+		objectId[objectId[7] - 1] = objectId[objectId[8] - 1];
+		objectId[objectId[8] - 1] = temp;
+		buf1 = puzzle->coord[objectId[8] - 1][0];
+		buf2 = puzzle->coord[objectId[8] - 1][1];
+		puzzle->coord[objectId[8] - 1][0] = puzzle->coord[objectId[7] - 1][0];
+		puzzle->coord[objectId[8] - 1][1] = puzzle->coord[objectId[7] - 1][1];
+		puzzle->coord[objectId[7] - 1][0] = buf1;
+		puzzle->coord[objectId[7] - 1][1] = buf2;
+	}
+
 }
 
 void mix(puzzle* puzzle) {
@@ -194,20 +303,42 @@ void mouseCallback(ObjectID object, int x_, int y_, MouseAction action) {
 	if (object == reset) {
 		timeEnd = clock();
 		printf("Time: %.5lf\n", (double)(timeEnd - timeStart) / CLOCKS_PER_SEC);
-		sprintf_s(name, "%.5lf초 지남", (double)(timeEnd - timeStart) / CLOCKS_PER_SEC);
+		sprintf_s(name, "%.5lf초 지남", (double)(timeEnd - timeStart) / CLOCKS_PER_SEC );
 		showMessage(name);
 		mix(&myPuzzle);
 		locateAndSave(&myPuzzle);
 	}
 	if (object == img1) {
-
-		myPuzzle.coord[0][0] = x[8];
-		myPuzzle.coord[0][1] = y[8];
-		myPuzzle.coord[8][0] = x[0];
-		myPuzzle.coord[8][1] = y[0];
+		move(&myPuzzle, img1);
 		locateAndSave(&myPuzzle);
-
-		//endGame();
+	}
+	else if (object == img2) {
+		move(&myPuzzle, img2);
+		locateAndSave(&myPuzzle);
+	}
+	else if (object == img3) {
+		move(&myPuzzle, img3);
+		locateAndSave(&myPuzzle);
+	}
+	else if (object == img4) {
+		move(&myPuzzle, img4);
+		locateAndSave(&myPuzzle);
+	}
+	else if (object == img5) {
+		move(&myPuzzle, img5);
+		locateAndSave(&myPuzzle);
+	}
+	else if (object == img6) {
+		move(&myPuzzle, img6);
+		locateAndSave(&myPuzzle);
+	}
+	else if (object == img7) {
+		move(&myPuzzle, img7);
+		locateAndSave(&myPuzzle);
+	}
+	else if (object == img1) {
+		move(&myPuzzle, img8);
+		locateAndSave(&myPuzzle);
 	}
 	/*
 	if (object == img9) {
